@@ -44,7 +44,6 @@ function resetForm(){
 function subscribe() {
 
 	var email = $('#email').val();
-	console.log(email);
     if (!validEmail(email)){
         $('#badEmailError').html('<div id="badEmail" class="alert alert-error"> <a class="close" data-dismiss="alert">×</a><strong>Error! </strong>Invalid email, you noob.</div>');
         return;
