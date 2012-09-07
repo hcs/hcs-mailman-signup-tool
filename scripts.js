@@ -28,6 +28,9 @@ function validEmail(emailAddress) {
 function resetForm(){
 	$('#email').val('');
 	$('#fullname').val('');
+	$('#noneSelectedError').html('');
+	$('#badEmailError').html('');
+
 	selectedLists = $('.mlist.active');
 	selectedLists.each(function(){
 		$(this).removeClass('btn-success');
@@ -43,7 +46,7 @@ function subscribe () {
 	var email = $('#email').val();
 	
     if (!validEmail(email)){
-        $('#badEmail').html('<div id="badEmail" style="display:none" class="alert alert-error"> <a class="close" data-dismiss="alert">×</a><strong>Error! </strong>Invalid email, you noob. </div>');
+        $('#badEmailError').html('<div id="badEmail" class="alert alert-error"> <a class="close" data-dismiss="alert">×</a><strong>Error! </strong>Invalid email, you noob.</div>');
         return;
     }
 	var fullname = $('#fullname').val();	
@@ -69,8 +72,9 @@ function subscribe () {
 
 	var lists = [];
 	selectedLists = $('.mlist.active');
-	if (selectedLists.length < 1) { 
-		alert("Sign up for at leaset one list!");
+	if (selectedLists.length < 1) {
+		$('#noneSelectedError').html('<div id="badEmail" class="alert alert-error"> <a class="close" data-dismiss="alert">×</a><strong>Error! </strong>Select at least one list.</div>');
+		return
 	} 
 	else 
 	{
