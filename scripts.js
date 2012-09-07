@@ -34,8 +34,30 @@ function resetForm(){
 
 
 function subscribe () {
+
 	var email = $('#email').val();
-	var fullname = $('#fullname').val();
+	var fullname = $('#fullname').val();		
+			
+	var paramsArray = { 
+		"email" : email,
+		"fullname":fullname
+	};
+	
+	$.ajax({
+		type: "POST",
+		url: "backup.php",
+		data: "params="+JSON.stringify(paramsArray),
+		dataType: 'json',
+		success: function(data){
+			//win with great success
+		},
+		//fail silently.
+		error: function(data){
+			//alert("/cry");
+		}
+	});
+
+			
 	var lists = [];
 	selectedLists = $('.mlist.active');
 	if (selectedLists.length < 1) { 
