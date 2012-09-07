@@ -1,4 +1,4 @@
-$(document).ready(function(){
+﻿$(document).ready(function(){
 	$('#submit').click(subscribe);
 	$('#close').click(resetForm);
 	
@@ -41,10 +41,10 @@ function resetForm(){
 }
 
 
-function subscribe () {
+function subscribe() {
 
 	var email = $('#email').val();
-	
+	console.log(email);
     if (!validEmail(email)){
         $('#badEmailError').html('<div id="badEmail" class="alert alert-error"> <a class="close" data-dismiss="alert">×</a><strong>Error! </strong>Invalid email, you noob.</div>');
         return;
